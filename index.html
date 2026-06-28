@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#080c1e">
+<title>Металлоконструкции — Производство и монтаж под ключ | Екатеринбург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c1e;
+  --bg2:#0d1330;
+  --card:#0f1628;
+  --acc:#e76f51;
+  --acc2:#f4a261;
+  --steel:#8ba3c7;
+  --text:#d4d9e8;
+  --dim:#6b7a99;
+  --brd:rgba(139,163,199,0.1);
+  --brd2:rgba(139,163,199,0.2);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;cursor:none}
+@media(pointer:coarse){body{cursor:auto}#cur,#cuf{display:none}}
+
+/* ── CURSOR ── */
+#cur{position:fixed;width:8px;height:8px;background:var(--acc);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border .25s}
+#cur.h{width:40px;height:40px;background:transparent;border:1.5px solid var(--acc)}
+#cuf{position:fixed;width:36px;height:36px;border:1px solid rgba(231,111,81,.22);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+
+/* ── SCROLL BAR ── */
+#spb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));z-index:9998;width:0}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:24px 52px;transition:all .4s}
+nav.sc{background:rgba(8,12,30,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:14px 52px;border-bottom:1px solid var(--brd)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:6px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.ldot{width:6px;height:6px;background:var(--acc);border-radius:50%;flex-shrink:0;animation:blink 2.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+.nl{display:flex;gap:32px;list-style:none}
+.nl a{color:var(--dim);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+.nl a:hover{color:#fff}
+.ncta{background:transparent;border:1px solid rgba(231,111,81,.45);color:var(--acc);padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;font-family:'Inter',sans-serif;text-decoration:none;white-space:nowrap}
+.ncta:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s}
+@media(max-width:1024px){.nl{display:none}.hbg{display:flex}}
+@media(max-width:640px){nav{padding:16px 20px}nav.sc{padding:12px 20px}}
+
+/* ── MOBILE MENU ── */
+.mmo{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:8000;opacity:0;pointer-events:none;transition:opacity .3s}
+.mmo.op{opacity:1;pointer-events:all}
+.mm{position:fixed;top:0;right:0;width:280px;height:100vh;background:var(--bg2);border-left:1px solid var(--brd);z-index:8001;padding:80px 40px 40px;display:flex;flex-direction:column;gap:30px;transform:translateX(100%);transition:transform .4s cubic-bezier(.23,1,.32,1)}
+.mm.op{transform:translateX(0)}
+.mm a{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--text);text-decoration:none;transition:color .3s}
+.mm a:hover{color:var(--acc)}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#hc{position:absolute;inset:0;width:100%;height:100%}
+.hcont{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:960px}
+.hey{font-size:11px;letter-spacing:7px;text-transform:uppercase;color:var(--acc);margin-bottom:28px;opacity:0;transform:translateY(14px);animation:fu .7s ease .2s forwards;font-weight:600}
+.htw{display:block;overflow:hidden}
+.ht{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,11vw,158px);line-height:.88;letter-spacing:3px;color:#fff}
+.ht .ln{display:inline-block;transform:translateY(110%);animation:rev .9s cubic-bezier(.16,1,.3,1) forwards}
+.ht .ln1{animation-delay:.45s}
+.ht .ln2{animation-delay:.65s;background:linear-gradient(135deg,var(--acc2) 0%,var(--acc) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hsub{font-size:clamp(14px,1.7vw,17px);color:var(--steel);max-width:540px;margin:30px auto 0;line-height:1.7;font-weight:300;opacity:0;transform:translateY(14px);animation:fu .8s ease 1.25s forwards}
+.hcg{display:flex;gap:14px;justify-content:center;margin-top:44px;flex-wrap:wrap;opacity:0;animation:fu .8s ease 1.55s forwards}
+.btn1{background:var(--acc);color:#fff;padding:15px 40px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;transition:all .3s;text-decoration:none;display:inline-block}
+.btn1:hover{background:#cf5c3d;transform:translateY(-2px)}
+.btn2{background:transparent;color:var(--text);padding:15px 40px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:1px solid var(--brd2);transition:all .3s;text-decoration:none;display:inline-block}
+.btn2:hover{border-color:var(--steel);color:#fff;transform:translateY(-2px)}
+/* Hero edge badges */
+.hbdg{position:absolute;bottom:48px;left:52px;display:flex;flex-direction:column;gap:16px;z-index:2;opacity:0;animation:fu .8s ease 2s forwards}
+.hbi{display:flex;align-items:center;gap:10px}
+.hbin{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;line-height:1}
+.hbil{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px}
+.hsh{position:absolute;bottom:40px;right:52px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;opacity:0;animation:fu 1s ease 2.2s forwards;z-index:2}
+.hsh span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--dim)}
+.sla{width:1px;height:52px;background:linear-gradient(180deg,var(--acc),transparent);animation:slani 2s ease-in-out infinite;align-self:flex-end}
+@keyframes slani{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fu{to{opacity:1;transform:translateY(0)}}
+@keyframes rev{to{transform:translateY(0)}}
+@media(max-width:640px){.hcg{flex-direction:column;align-items:center}.hbdg,.hsh{display:none}}
+
+/* ── TICKER ── */
+.ticker{background:rgba(231,111,81,.06);border-top:1px solid rgba(231,111,81,.15);border-bottom:1px solid rgba(231,111,81,.15);padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:tick 28s linear infinite}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);padding:0 36px}
+.ticker-item span{color:var(--acc);margin-right:12px}
+
+/* ── STATS ── */
+.sb{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
+.sb>div{border-right:1px solid var(--brd)}
+.sb>div:last-child{border-right:none}
+.si{background:var(--bg2);padding:32px 36px;text-align:center}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:#fff}
+.sn b{color:var(--acc)}
+.slab{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);margin-top:6px}
+@media(max-width:900px){.sb{grid-template-columns:repeat(2,1fr)}.sb>div:nth-child(2){border-right:none}.sb>div:nth-child(3){border-top:1px solid var(--brd)}.sb>div:nth-child(4){border-top:1px solid var(--brd);border-right:none}}
+@media(max-width:640px){.sb{grid-template-columns:1fr}.sb>div{border-right:none;border-top:1px solid var(--brd)}.sb>div:first-child{border-top:none}.si{padding:22px 20px}}
+
+/* ── SECTION BASE ── */
+.sec{padding:96px 52px;max-width:1380px;margin:0 auto}
+.sey{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:12px;font-weight:600}
+.stit{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.5vw,78px);letter-spacing:2px;color:#fff;line-height:1;margin-bottom:14px}
+.ssub{font-size:14px;color:var(--dim);max-width:500px;line-height:1.8;font-weight:300}
+@media(max-width:640px){.sec{padding:60px 20px}}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.25s}.rv.d4{transition-delay:.3s}.rv.d5{transition-delay:.4s}.rv.d6{transition-delay:.5s}
+
+/* ── OBJECTS ── */
+#obj{padding:96px 0}
+.oi{max-width:1380px;margin:0 auto;padding:0 52px}
+.oh{margin-bottom:52px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(139,163,199,0.06)}
+@media(max-width:1100px){.cg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.cg{grid-template-columns:1fr}.oi{padding:0 20px}#obj{padding:60px 0}}
+
+/* ── CARD ── */
+.card{position:relative;height:420px;overflow:hidden;cursor:pointer;background:var(--card)}
+.cimg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .85s cubic-bezier(.23,1,.32,1);will-change:transform}
+.card:hover .cimg{transform:scale(1.08)}
+.cgrad{position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,8,22,.98) 0%,rgba(5,8,22,.4) 50%,rgba(5,8,22,.1) 100%);z-index:1;transition:opacity .4s}
+.card:hover .cgrad{opacity:.85}
+/* accent underline */
+.card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));z-index:5;transition:width .5s cubic-bezier(.23,1,.32,1)}
+.card:hover::after{width:100%}
+.ci{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;z-index:2}
+.ctag{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--acc);margin-bottom:7px;font-weight:600}
+.cname{font-family:'Bebas Neue',sans-serif;font-size:27px;letter-spacing:1px;color:#fff;transition:transform .4s}
+.cprice{font-size:12px;color:var(--steel);margin-top:5px;letter-spacing:.3px}
+.card:hover .cname{transform:translateY(-6px)}
+/* hover overlay */
+.co{position:absolute;inset:0;background:rgba(5,8,22,.96);backdrop-filter:blur(6px);z-index:3;display:flex;flex-direction:column;justify-content:center;padding:34px;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
+.card:hover .co{opacity:1;transform:translateY(0)}
+.cot{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;margin-bottom:20px;padding-left:14px;border-left:3px solid var(--acc);line-height:1.1}
+.cs{display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+.sr{display:flex;justify-content:space-between;align-items:center;padding-bottom:9px;border-bottom:1px solid var(--brd)}
+.slb{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.8px}
+.sv{font-size:13px;color:var(--text);font-weight:500}
+.cpr{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--acc);line-height:1}
+.cprl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.cbtn{background:var(--acc);color:#fff;padding:10px 22px;font-size:10px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;transition:all .3s;align-self:flex-start}
+.cbtn:hover{background:#cf5c3d;transform:translateY(-1px)}
+
+/* ── ADVANTAGES STRIP ── */
+#adv{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
+.adv-inner{max-width:1380px;margin:0 auto;padding:80px 52px}
+.adv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--brd);margin-top:52px}
+.advi{background:var(--bg2);padding:44px 36px;border-bottom:3px solid transparent;transition:border-color .4s,background .4s}
+.advi:hover{background:#0f1a36;border-color:var(--acc)}
+.adv-ico{width:48px;height:48px;border:1px solid var(--brd2);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:border-color .3s}
+.advi:hover .adv-ico{border-color:rgba(231,111,81,.55)}
+.adv-ico svg{width:22px;height:22px;stroke:var(--acc);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.adv-num{font-family:'Bebas Neue',sans-serif;font-size:54px;color:#fff;line-height:1;margin-bottom:6px}
+.adv-num b{color:var(--acc)}
+.adv-tit{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px}
+.adv-txt{font-size:13px;color:var(--dim);line-height:1.8;font-weight:300}
+@media(max-width:900px){.adv-g{grid-template-columns:1fr}.adv-inner{padding:60px 24px}}
+@media(max-width:640px){.adv-inner{padding:60px 20px}}
+
+/* ── PROCESS ── */
+#proc{background:var(--bg)}
+.pi{max-width:1380px;margin:0 auto;padding:96px 52px}
+.ps{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;margin-top:56px;position:relative}
+.ps::before{content:'';position:absolute;top:23px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--brd2) 10%,var(--brd2) 90%,transparent)}
+.pst{position:relative}
+.pnum{font-family:'Bebas Neue',sans-serif;font-size:88px;color:rgba(255,255,255,.025);line-height:1;position:absolute;top:-20px;left:-12px;pointer-events:none;user-select:none}
+.pico{width:46px;height:46px;border:1px solid rgba(231,111,81,.35);display:flex;align-items:center;justify-content:center;margin-bottom:18px;position:relative;z-index:1;background:var(--bg);transition:all .3s}
+.pst:hover .pico{background:rgba(231,111,81,.08);border-color:var(--acc)}
+.pico svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ptit{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.ptxt{font-size:13px;color:var(--dim);line-height:1.75;font-weight:300;position:relative;z-index:1}
+@media(max-width:900px){.ps{grid-template-columns:repeat(2,1fr)}.ps::before{display:none}.pi{padding:60px 24px}}
+@media(max-width:640px){.ps{grid-template-columns:1fr}.pi{padding:60px 20px}}
+
+/* ── CALCULATOR ── */
+#calc{background:var(--bg2);border-top:1px solid var(--brd)}
+.cli{max-width:1380px;margin:0 auto;padding:96px 52px}
+.cc{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px}
+.cf{display:flex;flex-direction:column;gap:22px}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:600}
+.fs,.fi{background:rgba(255,255,255,.04);border:1px solid var(--brd2);color:var(--text);padding:14px 18px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .3s;width:100%}
+.fs:focus,.fi:focus{border-color:var(--acc)}
+.fi::placeholder{color:var(--dim)}
+.fs{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7a99' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px;background-color:rgba(255,255,255,.04);cursor:pointer}
+.fs option{background:var(--bg2);color:var(--text)}
+.rr{display:flex;align-items:center;gap:14px}
+.fr{flex:1;-webkit-appearance:none;height:2px;background:var(--brd2);outline:none;cursor:pointer}
+.fr::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--acc);border-radius:50%;cursor:pointer;transition:transform .2s;box-shadow:0 0 0 4px rgba(231,111,81,.15)}
+.fr::-webkit-slider-thumb:hover{transform:scale(1.25)}
+.rv2{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;min-width:88px;text-align:right}
+/* result panel */
+.cr{background:var(--card);border:1px solid var(--brd2);padding:36px;position:sticky;top:100px}
+.rtit{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:28px;font-weight:600}
+.rl{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--brd)}
+.rl:last-of-type{border-bottom:none}
+.rll{font-size:11px;color:var(--dim)}
+.rlv{font-size:13px;color:var(--text);font-weight:500}
+.rt{background:rgba(231,111,81,.07);border:1px solid rgba(231,111,81,.2);padding:22px;margin-top:22px;text-align:center}
+.rtl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:6px;font-weight:600}
+.rta{font-family:'Bebas Neue',sans-serif;font-size:48px;color:#fff;letter-spacing:1px;line-height:1}
+.rtd{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.6}
+.csub{width:100%;background:var(--acc);color:#fff;padding:15px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;margin-top:20px;transition:all .3s}
+.csub:hover{background:#cf5c3d}
+@media(max-width:900px){.cc{grid-template-columns:1fr;gap:36px}.cli{padding:60px 24px}.cr{position:static}}
+@media(max-width:640px){.cli{padding:60px 20px}}
+
+/* ── CONTACT ── */
+#con{background:var(--bg);border-top:1px solid var(--brd)}
+.coni{max-width:1380px;margin:0 auto;padding:96px 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.conph{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3vw,46px);color:#fff;text-decoration:none;display:block;margin:20px 0 8px;transition:color .3s;letter-spacing:1px}
+.conph:hover{color:var(--acc)}
+.conmail{font-size:14px;color:var(--steel);text-decoration:none;display:block;margin-bottom:30px;transition:color .3s}
+.conmail:hover{color:#fff}
+.con-note{font-size:13px;color:var(--dim);line-height:1.8}
+.cform{display:flex;flex-direction:column;gap:14px}
+textarea{background:rgba(255,255,255,.04);border:1px solid var(--brd2);color:var(--text);padding:14px 18px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .3s;resize:vertical;min-height:110px;width:100%}
+textarea:focus{border-color:var(--acc)}
+textarea::placeholder{color:var(--dim)}
+.cfs{display:none;color:#22c55e;font-size:13px;text-align:center;padding:12px;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.05)}
+@media(max-width:900px){.coni{grid-template-columns:1fr;gap:48px;padding:60px 24px}}
+@media(max-width:640px){.coni{padding:60px 20px}}
+
+/* ── FOOTER ── */
+footer{padding:34px 52px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--brd);max-width:1380px;margin:0 auto}
+.flogo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:5px;color:var(--dim)}
+.fcopy{font-size:11px;color:var(--dim);opacity:.4}
+@media(max-width:640px){footer{flex-direction:column;gap:10px;text-align:center;padding:28px 20px}}
+.fspacer{height:70px}
+
+/* ── BOTTOM BAR ── */
+#bb{position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(8,12,30,.85);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-top:1px solid var(--brd);padding:12px 44px;display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(100%);transition:transform .4s ease}
+#bb.vis{transform:translateY(0)}
+.bbt{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.bdot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:blink 2.5s ease-in-out infinite;flex-shrink:0}
+.bba{display:flex;gap:10px;flex-shrink:0}
+.bb1,.bb2,.bb3{padding:9px 20px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:700;text-decoration:none;transition:all .3s;white-space:nowrap;border:none}
+.bb1{background:var(--acc);color:#fff;cursor:pointer}
+.bb2{background:transparent;color:var(--text);border:1px solid var(--brd2)}
+.bb3{background:transparent;color:var(--steel);border:1px solid var(--brd)}
+.bb1:hover{background:#cf5c3d}.bb2:hover{border-color:var(--steel);color:#fff}.bb3:hover{border-color:var(--steel);color:#fff}
+@media(max-width:640px){#bb{padding:10px 16px}.bbt{display:none}.bba{gap:8px}.bb1,.bb2,.bb3{padding:9px 14px}}
+
+/* ── MODAL SIDE PANEL ── */
+#modal{position:fixed;inset:0;z-index:9500;display:flex;align-items:stretch;justify-content:flex-end;pointer-events:none;opacity:0;transition:opacity .35s ease}
+#modal.op{pointer-events:all;opacity:1}
+.mo{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(8px)}
+.mc{position:relative;background:var(--bg2);border-left:1px solid var(--brd2);width:100%;max-width:540px;overflow-y:auto;transform:translateX(100%);transition:transform .44s cubic-bezier(.23,1,.32,1);padding:52px 44px 44px;display:flex;flex-direction:column}
+#modal.op .mc{transform:translateX(0)}
+.mclose{position:absolute;top:20px;right:20px;width:36px;height:36px;border:1px solid var(--brd2);background:transparent;color:var(--text);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .3s;line-height:1}
+.mclose:hover{border-color:var(--acc);color:var(--acc)}
+.mtag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--acc);margin-bottom:10px;font-weight:600}
+.mtit{font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;margin-bottom:4px;line-height:1}
+.msub{font-size:13px;color:var(--dim);margin-bottom:28px;line-height:1.6}
+/* advantage badges */
+.mbdgs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.mbdg{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--acc);border:1px solid rgba(231,111,81,.25);padding:5px 12px;background:rgba(231,111,81,.06)}
+/* calc table */
+.ctable{width:100%;border-collapse:collapse;margin-bottom:22px}
+.ctable th{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--brd2);font-weight:600}
+.ctable th:last-child{text-align:right}
+.ctable td{padding:11px 0;border-bottom:1px solid var(--brd);font-size:13px}
+.ctable td:first-child{color:var(--text);padding-right:16px}
+.ctable td:last-child{text-align:right;color:var(--steel);white-space:nowrap;font-weight:500}
+.ctotal{background:rgba(231,111,81,.07);border:1px solid rgba(231,111,81,.18);padding:20px 22px;margin-bottom:24px}
+.ctotl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--acc);margin-bottom:6px;font-weight:600}
+.ctotv{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1}
+/* form in modal */
+.mform{display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid var(--brd);margin-top:auto}
+.mform .fi{width:100%}
+.msend{width:100%;background:var(--acc);color:#fff;padding:15px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;transition:all .3s}
+.msend:hover{background:#cf5c3d}
+.msuc{display:none;color:#22c55e;font-size:13px;text-align:center;padding:12px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15)}
+@media(max-width:640px){.mc{max-width:100%;border-left:none;border-top:1px solid var(--brd2)}.mc{padding:44px 20px 40px}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div id="spb"></div>
+<div id="cur"></div>
+<div id="cuf"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo"><div class="ldot"></div>МЕТАЛЛСТРОЙ</a>
+  <ul class="nl">
+    <li><a href="#obj">Объекты</a></li>
+    <li><a href="#adv">Преимущества</a></li>
+    <li><a href="#calc">Расчёт</a></li>
+    <li><a href="#con">Контакты</a></li>
+  </ul>
+  <a href="#con" class="ncta">Получить КП</a>
+  <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+<div class="mmo" id="mmo"></div>
+<div class="mm" id="mm">
+  <a href="#obj" class="ml">Объекты</a>
+  <a href="#adv" class="ml">Преимущества</a>
+  <a href="#calc" class="ml">Расчёт</a>
+  <a href="#con" class="ml">Контакты</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hc"></canvas>
+  <div class="hcont">
+    <p class="hey">Екатеринбург · УрФО · Вся Россия</p>
+    <h1 class="ht">
+      <span class="htw"><span class="ln ln1">МЕТАЛЛО</span></span><span class="htw"><span class="ln ln2">КОНСТРУКЦИИ</span></span>
+    </h1>
+    <p class="hsub">Собственное производство в Екатеринбурге. Себестоимость на 25–35% ниже рынка. Срок строительства в 1.5–2 раза быстрее. От торговых магазинов до распределительных центров — под ключ.</p>
+    <div class="hcg">
+      <a href="#calc" class="btn1">Рассчитать стоимость</a>
+      <a href="#obj" class="btn2">Смотреть объекты</a>
+    </div>
+  </div>
+  <div class="hbdg rv">
+    <div class="hbi"><div class="hbin" style="color:var(--acc)">−30%</div><div class="hbil">к рынку</div></div>
+    <div class="hbi"><div class="hbin">×1.8</div><div class="hbil">быстрее</div></div>
+  </div>
+  <div class="hsh">
+    <div class="sla"></div>
+    <span>Прокрутите</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span>▸</span>Торговые магазины</span>
+    <span class="ticker-item"><span>▸</span>Дарксторы и склады e-comm</span>
+    <span class="ticker-item"><span>▸</span>Распределительные центры</span>
+    <span class="ticker-item"><span>▸</span>Производственные цеха</span>
+    <span class="ticker-item"><span>▸</span>Ангары АПК</span>
+    <span class="ticker-item"><span>▸</span>Индустриальные парки</span>
+    <span class="ticker-item"><span>▸</span>Стрип-моллы</span>
+    <span class="ticker-item"><span>▸</span>Навесы и козырьки</span>
+    <span class="ticker-item"><span>▸</span>Торговые магазины</span>
+    <span class="ticker-item"><span>▸</span>Дарксторы и склады e-comm</span>
+    <span class="ticker-item"><span>▸</span>Распределительные центры</span>
+    <span class="ticker-item"><span>▸</span>Производственные цеха</span>
+    <span class="ticker-item"><span>▸</span>Ангары АПК</span>
+    <span class="ticker-item"><span>▸</span>Индустриальные парки</span>
+    <span class="ticker-item"><span>▸</span>Стрип-моллы</span>
+    <span class="ticker-item"><span>▸</span>Навесы и козырьки</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="sb">
+  <div class="si rv"><div class="sn">−<b id="s1">0</b>%</div><div class="slab">К рыночной себестоимости</div></div>
+  <div class="si rv d1"><div class="sn"><b id="s2">0</b>×</div><div class="slab">Быстрее среднего по рынку</div></div>
+  <div class="si rv d2"><div class="sn"><b id="s3">0</b>+</div><div class="slab">Типов объектов</div></div>
+  <div class="si rv d3"><div class="sn"><b id="s4">0</b></div><div class="slab">Дней средний монтаж</div></div>
+</div>
+
+<!-- OBJECTS -->
+<div id="obj">
+  <div class="oi">
+    <div class="oh rv">
+      <div>
+        <p class="sey">Что мы строим</p>
+        <h2 class="stit">ОБЪЕКТЫ</h2>
+        <p class="ssub">Нажмите на объект — увидите детальную разбивку стоимости и параметры.</p>
+      </div>
+      <a href="#calc" class="btn1" style="flex-shrink:0">Рассчитать стоимость →</a>
+    </div>
+    <div class="cg">
+
+      <!-- CARD 1 Торговые -->
+      <div class="card rv" onclick="openModal('retail')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80');background-color:#0d1330;background-position:center 40%"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">Ритейл · Коммерция</div>
+          <div class="cname">Торговые магазины</div>
+          <div class="cprice">от 4 000 ₽/м²</div>
+        </div>
+        <div class="co">
+          <div class="cot">Торговые магазины и стрип-моллы</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">200 — 20 000 м²</span></div>
+            <div class="sr"><span class="slb">Фасад</span><span class="sv">Витраж / Кассета / Сэндвич</span></div>
+            <div class="sr"><span class="slb">Пролёт без опор</span><span class="sv">до 36 м</span></div>
+          </div>
+          <div class="cpr">от 4 000 ₽</div>
+          <div class="cprl">за м² под ключ</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('retail')">Детальный расчёт →</button>
+        </div>
+      </div>
+
+      <!-- CARD 2 Дарксторы -->
+      <div class="card rv d1" onclick="openModal('darkstore')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80');background-color:#0a1020"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">E-commerce · Быстровозводимые</div>
+          <div class="cname">Дарксторы и склады</div>
+          <div class="cprice">от 2 800 ₽/м²</div>
+        </div>
+        <div class="co">
+          <div class="cot">Дарксторы и склады e-comm</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">300 — 10 000 м²</span></div>
+            <div class="sr"><span class="slb">Высота</span><span class="sv">6 — 14 м</span></div>
+            <div class="sr"><span class="slb">Срок монтажа</span><span class="sv">45 — 90 дней</span></div>
+          </div>
+          <div class="cpr">от 2 800 ₽</div>
+          <div class="cprl">за м² под ключ</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('darkstore')">Детальный расчёт →</button>
+        </div>
+      </div>
+
+      <!-- CARD 3 РЦ -->
+      <div class="card rv d2" onclick="openModal('logistics')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80');background-color:#0f1824"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">Логистика · Складская недвижимость</div>
+          <div class="cname">Распределительные центры</div>
+          <div class="cprice">от 2 500 ₽/м²</div>
+        </div>
+        <div class="co">
+          <div class="cot">РЦ и логистические хабы</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">2 000 — 100 000 м²</span></div>
+            <div class="sr"><span class="slb">Пролёт</span><span class="sv">до 30 м без опор</span></div>
+            <div class="sr"><span class="slb">Доковые ворота</span><span class="sv">от 120 000 ₽/шт</span></div>
+          </div>
+          <div class="cpr">от 2 500 ₽</div>
+          <div class="cprl">за м² под ключ</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('logistics')">Детальный расчёт →</button>
+        </div>
+      </div>
+
+      <!-- CARD 4 Цеха -->
+      <div class="card rv d3" onclick="openModal('factory')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80');background-color:#050a1e"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">Промышленность · Производство</div>
+          <div class="cname">Производственные цеха</div>
+          <div class="cprice">от 3 200 ₽/м²</div>
+        </div>
+        <div class="co">
+          <div class="cot">Цеха, заводы, мастерские</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">1 000 — 100 000 м²</span></div>
+            <div class="sr"><span class="slb">Кран-балка</span><span class="sv">до 50 тонн</span></div>
+            <div class="sr"><span class="slb">Пролёт без опор</span><span class="sv">до 60 м</span></div>
+          </div>
+          <div class="cpr">от 3 200 ₽</div>
+          <div class="cprl">за м² под ключ</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('factory')">Детальный расчёт →</button>
+        </div>
+      </div>
+
+      <!-- CARD 5 АПК -->
+      <div class="card rv d4" onclick="openModal('apk')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80');background-color:#0a1208;background-position:center 60%"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">Агропром · АПК</div>
+          <div class="cname">Ангары и зернохранилища</div>
+          <div class="cprice">от 1 800 ₽/м²</div>
+        </div>
+        <div class="co">
+          <div class="cot">Ангары АПК и фермерские объекты</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">500 — 30 000 м²</span></div>
+            <div class="sr"><span class="slb">Ширина пролёта</span><span class="sv">12 — 60 м</span></div>
+            <div class="sr"><span class="slb">Монтаж</span><span class="sv">от 30 дней</span></div>
+          </div>
+          <div class="cpr">от 1 800 ₽</div>
+          <div class="cprl">за м² под ключ</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('apk')">Детальный расчёт →</button>
+        </div>
+      </div>
+
+      <!-- CARD 6 Индустриальный парк -->
+      <div class="card rv d5" onclick="openModal('industrial')">
+        <div class="cimg" style="background-image:url('https://images.unsplash.com/photo-1565515267236-2af1e57a3b44?w=900&q=80');background-color:#080c20"></div>
+        <div class="cgrad"></div>
+        <div class="ci">
+          <div class="ctag">Девелопмент · Индустрия</div>
+          <div class="cname">Индустриальные парки и ТЦ</div>
+          <div class="cprice">Стоимость под запрос</div>
+        </div>
+        <div class="co">
+          <div class="cot">Комплексные объекты под ключ</div>
+          <div class="cs">
+            <div class="sr"><span class="slb">Площадь</span><span class="sv">от 5 000 м²</span></div>
+            <div class="sr"><span class="slb">Формат</span><span class="sv">Стрип-молл / ИП / ТЦ</span></div>
+            <div class="sr"><span class="slb">Документация</span><span class="sv">Полный пакет</span></div>
+          </div>
+          <div class="cpr" style="font-size:28px">По запросу</div>
+          <div class="cprl">индивидуальный проект</div>
+          <button class="cbtn" onclick="event.stopPropagation();openModal('industrial')">Обсудить проект →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ADVANTAGES -->
+<div id="adv">
+  <div class="adv-inner">
+    <div class="rv">
+      <p class="sey">Наши преимущества</p>
+      <h2 class="stit">ПОЧЕМУ МЫ</h2>
+      <p class="ssub">Три конкурентных преимущества которые важны девелоперам, инвесторам и генподрядчикам.</p>
+    </div>
+    <div class="adv-g">
+      <div class="advi rv d1">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="adv-num">−<b>30</b>%</div>
+        <div class="adv-tit">Себестоимость ниже рынка</div>
+        <div class="adv-txt">Собственное производство металлоконструкций в Екатеринбурге исключает наценку поставщиков. Вы платите производителю, а не посреднику. Экономия 25–35% по сравнению с типовыми генподрядчиками.</div>
+      </div>
+      <div class="advi rv d2">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="adv-num"><b>1.8</b>×</div>
+        <div class="adv-tit">Скорость строительства</div>
+        <div class="adv-txt">Параллельное проектирование и производство. Поставка конструкций с собственного завода без очереди. Монтажная бригада в штате. Сроки фиксируются в договоре с финансовой ответственностью.</div>
+      </div>
+      <div class="advi rv d3">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="adv-num"><b>КП</b></div>
+        <div class="adv-tit">Коммерческое предложение за 24ч</div>
+        <div class="adv-txt">Опишите задачу — тип объекта, площадь, регион. Расчёт стоимости и предварительное КП в течение рабочего дня. Бесплатный выезд инженера на объект в Екатеринбурге и УрФО.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div id="proc">
+  <div class="pi">
+    <div class="rv">
+      <p class="sey">Как мы работаем</p>
+      <h2 class="stit">ПРОЦЕСС</h2>
+      <p class="ssub">От первого звонка до сдачи объекта — прозрачная схема без неожиданностей.</p>
+    </div>
+    <div class="ps">
+      <div class="pst rv d1">
+        <div class="pnum">01</div>
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="ptit">Задача и ТЗ</div>
+        <div class="ptxt">Звонок или встреча. Фиксируем тип объекта, площадь, регион, бюджет. Выезд на участок — бесплатно.</div>
+      </div>
+      <div class="pst rv d2">
+        <div class="pnum">02</div>
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="ptit">КП и проект</div>
+        <div class="ptxt">Коммерческое предложение за 24 часа. Проектная документация с детализацией по позициям. Без скрытых статей.</div>
+      </div>
+      <div class="pst rv d3">
+        <div class="pnum">03</div>
+        <div class="pico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="ptit">Производство</div>
+        <div class="ptxt">Изготовление на собственном заводе в Екатеринбурге. Поставка без очереди. Контроль ОТК на каждом этапе.</div>
+      </div>
+      <div class="pst rv d4">
+        <div class="pnum">04</div>
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+        <div class="ptit">Монтаж и сдача</div>
+        <div class="ptxt">Собственная монтажная бригада. Сдача объекта в срок. Полный пакет исполнительной документации.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<div id="calc">
+  <div class="cli">
+    <div class="rv">
+      <p class="sey">Ориентировочный расчёт</p>
+      <h2 class="stit">КАЛЬКУЛЯТОР</h2>
+      <p class="ssub">Получите предварительную оценку стоимости. Точная цена — после изучения ТЗ.</p>
+    </div>
+    <div class="cc">
+      <div class="cf rv d1">
+        <div class="fg">
+          <label class="fl">Тип объекта</label>
+          <select class="fs" id="ctype" onchange="updCalc()">
+            <option value="1800">Ангар АПК — от 1 800 ₽/м²</option>
+            <option value="2500" selected>Склад / РЦ — от 2 500 ₽/м²</option>
+            <option value="2800">Даркстор — от 2 800 ₽/м²</option>
+            <option value="3200">Производственный цех — от 3 200 ₽/м²</option>
+            <option value="4000">Торговый объект — от 4 000 ₽/м²</option>
+            <option value="5500">Стрип-молл / ТЦ — от 5 500 ₽/м²</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Площадь: <span id="adsp">1 000 м²</span></label>
+          <div class="rr">
+            <input type="range" class="fr" id="carea" min="200" max="20000" value="1000" step="100" oninput="updCalc()">
+            <div class="rv2" id="rv2a">1 000</div>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl">Комплектация</label>
+          <select class="fs" id="ccomp" onchange="updCalc()">
+            <option value="110">Каркас + кровля (базовая)</option>
+            <option value="130" selected>Под ключ: каркас + кровля + стены</option>
+            <option value="150">Полная: + инженерия и полы</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Регион</label>
+          <select class="fs" id="creg" onchange="updCalc()">
+            <option value="100">Екатеринбург и УрФО</option>
+            <option value="110">Центральная Россия</option>
+            <option value="115">Сибирь и ДФО</option>
+            <option value="120">Отдалённые регионы</option>
+          </select>
+        </div>
+      </div>
+      <div class="cr rv d2">
+        <div class="rtit">Предварительный расчёт</div>
+        <div class="rl"><span class="rll">Площадь</span><span class="rlv" id="r-a">1 000 м²</span></div>
+        <div class="rl"><span class="rll">Базовая цена м²</span><span class="rlv" id="r-p">2 500 ₽</span></div>
+        <div class="rl"><span class="rll">Комплектация</span><span class="rlv" id="r-c">×1.3</span></div>
+        <div class="rl"><span class="rll">Регион</span><span class="rlv" id="r-r">×1.0</span></div>
+        <div class="rt">
+          <div class="rtl">Ориентировочно</div>
+          <div class="rta" id="r-t">3 250 000 ₽</div>
+          <div class="rtd">Точная цена после изучения ТЗ и выезда инженера. Разброс ±15%.</div>
+        </div>
+        <button class="csub" onclick="calcWA()">Получить точный расчёт →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="con">
+  <div class="coni">
+    <div class="rv">
+      <p class="sey">Работаем по всей России</p>
+      <h2 class="stit">ОБСУДИМ ПРОЕКТ</h2>
+      <p class="ssub">Опишите задачу: тип объекта, площадь, регион. Ответим с расчётом в течение рабочего дня.</p>
+      <a href="tel:+79000000000" class="conph">+7 (900) 000-00-00</a>
+      <a href="mailto:retailsergey@yandex.ru" class="conmail">retailsergey@yandex.ru</a>
+      <p class="con-note">Екатеринбург и УрФО — выезд инженера бесплатно.<br>Другие регионы — работаем дистанционно.</p>
+    </div>
+    <div class="cform rv d1">
+      <input class="fi" id="cf1" placeholder="Ваше имя / Компания">
+      <input class="fi" id="cf2" placeholder="Телефон или email">
+      <select class="fi fs" id="cf3">
+        <option value="">Тип объекта</option>
+        <option>Торговый магазин / Стрип-молл</option>
+        <option>Даркстор / Склад e-commerce</option>
+        <option>Распределительный центр</option>
+        <option>Производственный цех / Завод</option>
+        <option>Ангар АПК / Зернохранилище</option>
+        <option>Индустриальный парк / ТЦ</option>
+        <option>Проектирование / Партнёрство</option>
+        <option>Другое</option>
+      </select>
+      <input class="fi" id="cf4" placeholder="Площадь объекта, м²">
+      <textarea id="cf5" placeholder="Регион, сроки, бюджет, особые требования..."></textarea>
+      <button class="btn1" onclick="sendCon()" style="border:none;cursor:pointer;width:100%">Отправить запрос →</button>
+      <div class="cfs" id="cfs">✓ Запрос принят — ответим в течение рабочего дня</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo">МЕТАЛЛСТРОЙ</div>
+  <div class="fcopy">Производство и монтаж металлоконструкций · Екатеринбург</div>
+</footer>
+<div class="fspacer"></div>
+
+<!-- BOTTOM BAR -->
+<div id="bb">
+  <div class="bbt"><div class="bdot"></div>Принимаем заявки · КП за 24 часа</div>
+  <div class="bba">
+    <a href="tel:+79000000000" class="bb1">Позвонить</a>
+    <a href="https://wa.me/79000000000?text=Здравствуйте!%20Хочу%20получить%20КП%20на%20металлоконструкции." class="bb2" target="_blank">WhatsApp</a>
+    <a href="https://t.me/your_telegram" class="bb3" target="_blank">Telegram</a>
+  </div>
+</div>
+
+<!-- MODAL SIDE PANEL -->
+<div id="modal">
+  <div class="mo" onclick="closeM()"></div>
+  <div class="mc" id="mc"></div>
+</div>
+
+<script>
+// ── HERO CANVAS — physics mesh (лучший вариант из A) ──────────
+(function(){
+  const cv=document.getElementById('hc'),ctx=cv.getContext('2d');
+  if(!ctx){cv.style.display='none';return;}
+  let W,H,pts,mx=-1e4,my=-1e4;
+  const COLS=22,ROWS=13;
+  function resize(){
+    W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;pts=[];
+    for(let i=0;i<=COLS;i++)for(let j=0;j<=ROWS;j++){
+      const ox=i*W/COLS,oy=j*H/ROWS;
+      pts.push({ox,oy,x:ox,y:oy,vx:0,vy:0});
+    }
+  }
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    const bg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*.72);
+    bg.addColorStop(0,'#0d1330');bg.addColorStop(1,'#080c1e');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+    const R1=ROWS+1;
+    pts.forEach(p=>{
+      const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);
+      const f=Math.max(0,1-d/180);
+      p.vx+=(p.ox-p.x)*.04+dx*f*.028;
+      p.vy+=(p.oy-p.y)*.04+dy*f*.028;
+      p.vx*=.75;p.vy*=.75;
+      p.x+=p.vx;p.y+=p.vy;
+    });
+    ctx.lineWidth=.7;
+    for(let i=0;i<=COLS;i++)for(let j=0;j<=ROWS;j++){
+      const p=pts[i*R1+j];
+      function drawLine(a,b){
+        if(!a||!b)return;
+        const cx2=(a.x+b.x)/2,cy2=(a.y+b.y)/2;
+        const d=Math.hypot(cx2-mx,cy2-my),g=Math.max(0,1-d/220);
+        ctx.strokeStyle=g>.05?`rgba(231,111,81,${.05+g*.4})`:'rgba(139,163,199,0.065)';
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      }
+      if(i<COLS)drawLine(p,pts[(i+1)*R1+j]);
+      if(j<ROWS)drawLine(p,pts[i*R1+j+1]);
+      const dv=Math.hypot(p.x-mx,p.y-my),gv=Math.max(0,1-dv/150);
+      ctx.fillStyle=gv>.1?`rgba(231,111,81,${.3+gv*.7})`:'rgba(139,163,199,0.15)';
+      ctx.beginPath();ctx.arc(p.x,p.y,gv>.1?2.2:.9,0,Math.PI*2);ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',resize);
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  document.addEventListener('touchmove',e=>{const t=e.touches[0];mx=t.clientX;my=t.clientY},{passive:true});
+  resize();frame();
+})();
+
+// ── SCROLL: nav + progress + bottombar ───────────────────────
+(function(){
+  const nav=document.getElementById('nav'),bb=document.getElementById('bb'),spb=document.getElementById('spb');
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(()=>{
+      const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+      nav.classList.toggle('sc',y>60);
+      bb.classList.toggle('vis',y>220);
+      spb.style.width=(y/max*100)+'%';
+      ticking=false;
+    });
+  },{passive:true});
+})();
+
+// ── STATS COUNTUP ────────────────────────────────────────────
+(function(){
+  const defs=[{id:'s1',val:30},{id:'s2',val:1.8,dec:1},{id:'s3',val:47},{id:'s4',val:90}];
+  let fired=false;
+  const io=new IntersectionObserver(es=>{
+    if(fired||!es.some(e=>e.isIntersecting))return;
+    fired=true;io.disconnect();
+    defs.forEach(d=>{
+      const el=document.getElementById(d.id);if(!el)return;
+      let v=0,dur=1400,step=16;
+      const iv=setInterval(()=>{
+        v+=step;const p=Math.min(v/dur,1),e=1-Math.pow(1-p,3);
+        el.textContent=d.dec?(d.val*e).toFixed(1):Math.round(d.val*e);
+        if(p>=1){clearInterval(iv);el.textContent=d.dec?d.val.toFixed(1):d.val;}
+      },step);
+    });
+  },{threshold:.3});
+  const sb=document.querySelector('.sb');if(sb)io.observe(sb);
+})();
+
+// ── REVEAL ───────────────────────────────────────────────────
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),
+  {threshold:.07,rootMargin:'0px 0px -36px 0px'})
+  .observe.bind(new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),
+  {threshold:.07,rootMargin:'0px 0px -36px 0px'}));
+(function(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.07,rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+
+// ── CURSOR ───────────────────────────────────────────────────
+(function(){
+  if(matchMedia('(pointer:coarse)').matches)return;
+  const c=document.getElementById('cur'),f=document.getElementById('cuf');
+  let cx=0,cy=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;c.style.left=cx+'px';c.style.top=cy+'px'});
+  (function af(){fx+=(cx-fx)*.12;fy+=(cy-fy)*.12;f.style.left=fx+'px';f.style.top=fy+'px';requestAnimationFrame(af)})();
+  document.querySelectorAll('a,button,.card,.cbtn,.ncta,.btn1,.btn2').forEach(el=>{
+    el.addEventListener('mouseenter',()=>c.classList.add('h'));
+    el.addEventListener('mouseleave',()=>c.classList.remove('h'));
+  });
+})();
+
+// ── MOBILE MENU ──────────────────────────────────────────────
+(function(){
+  const h=document.getElementById('hbg'),m=document.getElementById('mm'),o=document.getElementById('mmo');
+  const tog=v=>{m.classList.toggle('op',v);o.classList.toggle('op',v)};
+  h.addEventListener('click',()=>tog(!m.classList.contains('op')));
+  o.addEventListener('click',()=>tog(false));
+  document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>{tog(false)}));
+})();
+
+// ── CALCULATOR ───────────────────────────────────────────────
+function updCalc(){
+  const tp=parseInt(document.getElementById('ctype').value)||2500;
+  const ar=parseInt(document.getElementById('carea').value)||1000;
+  const co=parseInt(document.getElementById('ccomp').value)||130;
+  const re=parseInt(document.getElementById('creg').value)||100;
+  document.getElementById('adsp').textContent=ar.toLocaleString('ru')+' м²';
+  document.getElementById('rv2a').textContent=ar.toLocaleString('ru');
+  document.getElementById('r-a').textContent=ar.toLocaleString('ru')+' м²';
+  document.getElementById('r-p').textContent=tp.toLocaleString('ru')+' ₽';
+  document.getElementById('r-c').textContent='×'+(co/100).toFixed(2);
+  document.getElementById('r-r').textContent='×'+(re/100).toFixed(2);
+  const tot=Math.round(tp*ar*(co/100)*(re/100)/100000)*100000;
+  cntUp('r-t',tot);
+}
+function cntUp(id,tgt){
+  const el=document.getElementById(id);
+  const cur=parseInt((el.textContent||'').replace(/\D/g,''))||0;
+  if(cur===tgt){el.textContent=tgt.toLocaleString('ru')+' ₽';return;}
+  let v=0,dur=500,step=12;
+  const iv=setInterval(()=>{
+    v+=step;const p=Math.min(v/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(cur+(tgt-cur)*e).toLocaleString('ru')+' ₽';
+    if(p>=1){clearInterval(iv);}
+  },step);
+}
+updCalc();
+
+function calcWA(){
+  const tp=document.getElementById('ctype').options[document.getElementById('ctype').selectedIndex].text;
+  const ar=document.getElementById('carea').value;
+  const tot=document.getElementById('r-t').textContent;
+  const msg=encodeURIComponent(`Здравствуйте!\nТип объекта: ${tp}\nПлощадь: ${ar} м²\nОриентир по калькулятору: ${tot}\nПрошу подготовить точное КП.`);
+  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+}
+
+// ── MODAL DATA ───────────────────────────────────────────────
+const MD={
+  retail:{
+    tag:'Ритейл · Коммерция',title:'Торговые магазины и стрип-моллы',
+    badges:['До 36 м без опор','Витраж / Кассета','ТЦ и стрит-ритейл'],
+    sub:'Металлоконструкции для торговых объектов: стрит-ритейл, шоурумы, стрип-моллы, торговые центры.',
+    rows:[['Каркас с усиленными колоннами','от 55 000 ₽/т'],['Панорамное остекление / витраж','от 8 500 ₽/м²'],['Фасадные кассетные панели','от 3 200 ₽/м²'],['Кровля с утеплением','от 18 000 ₽/т'],['Монтаж и устройство фасада','от 40 000 ₽/т']],
+    total:'2 500 000 — 4 000 000 ₽',totlabel:'Итого за объект 500 м²',wa:'КП%20Торговый%20объект'
+  },
+  darkstore:{
+    tag:'E-commerce · Быстровозводимые',title:'Дарксторы и склады e-comm',
+    badges:['45–90 дней','Высота 6–14 м','Модульность'],
+    sub:'Быстровозводимые склады для тёмных магазинов и фулфилмент-центров. Минимальные сроки строительства.',
+    rows:[['Лёгкий стальной каркас','от 40 000 ₽/т'],['Сэндвич-панели стеновые','от 2 200 ₽/м²'],['Кровля утеплённая','от 14 000 ₽/т'],['Секционные ворота','от 65 000 ₽/шт'],['Монтаж под ключ','от 20 000 ₽/т']],
+    total:'1 200 000 — 2 500 000 ₽',totlabel:'Итого за объект 500 м²',wa:'КП%20Даркстор'
+  },
+  logistics:{
+    tag:'Логистика · РЦ',title:'Распределительные центры',
+    badges:['От 2 000 м²','Пролёт до 30 м','Доковые ворота'],
+    sub:'Логистические хабы и РЦ для крупного бизнеса. Пролёты до 30 м, доковые ворота, любая площадь.',
+    rows:[['Тяжёлый каркас (пролёты до 30 м)','от 42 000 ₽/т'],['Покрытие кровли','от 14 000 ₽/т'],['Стеновые сэндвич-панели','от 2 400 ₽/м²'],['Доковые ворота','от 120 000 ₽/шт'],['Монтаж','от 22 000 ₽/т']],
+    total:'15 000 000 — 22 000 000 ₽',totlabel:'Итого за хаб 5 000 м²',wa:'КП%20РЦ%20Логистика'
+  },
+  factory:{
+    tag:'Промышленность · Производство',title:'Производственные цеха и заводы',
+    badges:['Кран-балка до 50 т','Пролёт до 60 м','Класс нагрузки А'],
+    sub:'Цеха, заводы и мастерские с кран-балками, технологическими мостами и нагрузками по ТЗ.',
+    rows:[['Тяжёлый каркас с кран-балками','от 50 000 ₽/т'],['Технологические мосты','от 65 000 ₽/т'],['Кровля с принудительной вентиляцией','от 16 000 ₽/т'],['Стеновые панели','от 2 500 ₽/м²'],['Монтаж (высотные работы)','от 30 000 ₽/т']],
+    total:'8 000 000 — 12 000 000 ₽',totlabel:'Итого за цех 2 000 м²',wa:'КП%20Производственный%20цех'
+  },
+  apk:{
+    tag:'Агропром · АПК',title:'Ангары, фермы, зернохранилища',
+    badges:['От 30 дней','Пролёт 12–60 м','Арочный / Каркасный'],
+    sub:'Сельскохозяйственные ангары, фермы, зернохранилища. Самая низкая себестоимость в сегменте.',
+    rows:[['Лёгкий стальной каркас','от 38 000 ₽/т'],['Кровля профилированная','от 12 000 ₽/т'],['Стеновые панели / профлист','от 2 000 ₽/м²'],['Ворота распашные / откатные','от 45 000 ₽/шт'],['Монтаж','от 20 000 ₽/т']],
+    total:'1 500 000 — 2 500 000 ₽',totlabel:'Итого за ангар 500 м²',wa:'КП%20Ангар%20АПК'
+  },
+  industrial:{
+    tag:'Девелопмент · Инвестиции',title:'Индустриальные парки и ТЦ',
+    badges:['От 5 000 м²','Доходность от 12%','Под ключ'],
+    sub:'Комплексные объекты под ключ для девелоперов и инвесторов. Реализованные объекты с подтверждёнными цифрами доходности.',
+    rows:[['Каркас (индивидуальный проект)','по запросу'],['Инженерные системы','по запросу'],['Фасад и кровля','по запросу'],['Благоустройство территории','по запросу'],['Проектная документация','включена в стоимость']],
+    total:'Индивидуальный расчёт',totlabel:'Комплексный объект от 5 000 м²',wa:'КП%20Индустриальный%20парк'
+  }
+};
+
+function openModal(k){
+  const d=MD[k];if(!d)return;
+  const rows=d.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+  const bdgs=d.badges.map(b=>`<span class="mbdg">${b}</span>`).join('');
+  document.getElementById('mc').innerHTML=`
+    <button class="mclose" onclick="closeM()">✕</button>
+    <div class="mtag">${d.tag}</div>
+    <div class="mtit">${d.title}</div>
+    <div class="msub">${d.sub}</div>
+    <div class="mbdgs">${bdgs}</div>
+    <table class="ctable">
+      <thead><tr><th>Позиция</th><th>Стоимость</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="ctotal">
+      <div class="ctotl">${d.totlabel}</div>
+      <div class="ctotv">${d.total}</div>
+    </div>
+    <div class="mform">
+      <input class="fi" placeholder="Ваше имя / Компания" id="m1">
+      <input class="fi" placeholder="Телефон или email" id="m2">
+      <input class="fi" placeholder="Площадь объекта, м²" id="m3">
+      <button class="msend" onclick="sendM('${k}')">Запросить точный расчёт →</button>
+      <div class="msuc" id="msuc">✓ Запрос отправлен — ответим в течение рабочего дня</div>
+    </div>`;
+  document.getElementById('modal').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function closeM(){
+  document.getElementById('modal').classList.remove('op');
+  document.body.style.overflow='';
+}
+function sendM(k){
+  const n=document.getElementById('m1').value.trim();
+  const p=document.getElementById('m2').value.trim();
+  if(!n){alert('Укажите имя или компанию');return;}
+  const d=MD[k]||{};
+  const ar=document.getElementById('m3').value;
+  const msg=encodeURIComponent(`Здравствуйте!\nОбъект: ${d.title}\nИмя: ${n}\nКонтакт: ${p}\nПлощадь: ${ar} м²\nПрошу подготовить КП.`);
+  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+  const s=document.getElementById('msuc');if(s)s.style.display='block';
+}
+document.addEventListener('keydown',e=>e.key==='Escape'&&closeM());
+
+// ── CONTACT FORM → WhatsApp ───────────────────────────────────
+function sendCon(){
+  const n=document.getElementById('cf1').value.trim();
+  const c=document.getElementById('cf2').value.trim();
+  if(!n||!c){alert('Заполните имя и контакт');return;}
+  const tp=document.getElementById('cf3').value;
+  const ar=document.getElementById('cf4').value;
+  const mg=document.getElementById('cf5').value.trim();
+  const msg=encodeURIComponent(`Здравствуйте!\nИмя: ${n}\nКонтакт: ${c}\nТип объекта: ${tp||'не указан'}\nПлощадь: ${ar||'не указана'} м²\n${mg}`);
+  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+  document.getElementById('cfs').style.display='block';
+}
+</script>
+</body>
+</html>

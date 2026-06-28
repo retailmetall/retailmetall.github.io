@@ -705,8 +705,8 @@ footer{padding:34px 52px;display:flex;align-items:center;justify-content:space-b
 <div id="bb">
   <div class="bbt"><div class="bdot"></div>Принимаем заявки · КП за 24 часа</div>
   <div class="bba">
-    <a href="tel:+79000000000" class="bb1">Позвонить</a>
-    <a href="https://wa.me/79000000000?text=Здравствуйте!%20Хочу%20получить%20КП%20на%20металлоконструкции." class="bb2" target="_blank">WhatsApp</a>
+    <a href="tel:+79965932029" class="bb1">Позвонить</a>
+    <a href="https://wa.me/79965932029?text=Здравствуйте!%20Хочу%20получить%20КП%20на%20металлоконструкции." class="bb2" target="_blank">WhatsApp</a>
     <a href="https://t.me/your_telegram" class="bb3" target="_blank">Telegram</a>
   </div>
 </div>
@@ -870,7 +870,7 @@ function calcWA(){
   const ar=document.getElementById('carea').value;
   const tot=document.getElementById('r-t').textContent;
   const msg=encodeURIComponent(`Здравствуйте!\nТип объекта: ${tp}\nПлощадь: ${ar} м²\nОриентир по калькулятору: ${tot}\nПрошу подготовить точное КП.`);
-  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+  window.open(`https://wa.me/79965932029?text=${msg}`,'_blank');
 }
 
 // ── MODAL DATA ───────────────────────────────────────────────
@@ -958,7 +958,7 @@ function sendM(k){
   const d=MD[k]||{};
   const ar=document.getElementById('m3').value;
   const msg=encodeURIComponent(`Здравствуйте!\nОбъект: ${d.title}\nИмя: ${n}\nКонтакт: ${p}\nПлощадь: ${ar} м²\nПрошу подготовить КП.`);
-  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+  window.open(`https://wa.me/79965932029?text=${msg}`,'_blank');
   const s=document.getElementById('msuc');if(s)s.style.display='block';
 }
 document.addEventListener('keydown',e=>e.key==='Escape'&&closeM());
@@ -972,7 +972,7 @@ function sendCon(){
   const ar=document.getElementById('cf4').value;
   const mg=document.getElementById('cf5').value.trim();
   const msg=encodeURIComponent(`Здравствуйте!\nИмя: ${n}\nКонтакт: ${c}\nТип объекта: ${tp||'не указан'}\nПлощадь: ${ar||'не указана'} м²\n${mg}`);
-  window.open(`https://wa.me/79000000000?text=${msg}`,'_blank');
+  window.open(`https://wa.me/79965932029?text=${msg}`,'_blank');
   document.getElementById('cfs').style.display='block';
 }
 </script>
